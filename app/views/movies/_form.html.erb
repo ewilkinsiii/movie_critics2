@@ -1,0 +1,57 @@
+<%= form_for @movie, html: { multipart: true } do |f| %>
+  <% if @movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+      <% @movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :director_first_name %><br>
+    <%= f.text_field :director_first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :director_last_name %><br>
+    <%= f.text_field :director_last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :imdb_id %><br>
+    <%= f.number_field :imdb_id %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :release_date %><br>
+    <%= f.date_select :release_date %>
+  </div>
+  <div class="field">
+    <%= f.label :mpaa_rating %><br>
+    <%= f.text_field :mpaa_rating %>
+  </div>
+  <div class="field">
+    <%= f.label :run_time %><br>
+    <%= f.number_field :run_time %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
