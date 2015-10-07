@@ -43,14 +43,26 @@
     <%= f.label :mpaa_rating %><br>
     <%= f.text_field :mpaa_rating %>
   </div>
+
+  <h3>Genres</h3>
+  <div class="field">
+    <%= hidden_field_tag "movie[genre_ids][]", nil %>
+    <% Genre.all.each do |genre| %>
+      <%= check_box_tag "movie[genre_ids][]", genre.id, @movie.genre_ids.include?(genre.id), id: dom_id(genre) %>
+      <%= label_tag dom_id(genre), genre.category %><br>
+    <% end %>
+  </div>
+
   <div class="field">
     <%= f.label :run_time %><br>
     <%= f.number_field :run_time %>
   </div>
+  <br>
   <div class="field">
     <%= f.label :image %><br>
     <%= f.file_field :image%>
   </div>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,0 +1,77 @@
+<div class="row">
+ <div class="col-xs-12 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%if current_user.id == @user.id %>
+          <h2>Your Profile</h2>
+        <%else%>
+          <h2> <%= @user.displayed_name + "'s"%> Profile</h2>
+        <%end%>
+      </div>
+      <div class="panel-body">
+        <div class="div2">
+          <img src= <%=@user.avatar.url(:medium)%> width="150" height="150">
+        </div>
+        <div class="user">
+          <h3> <%= @user.displayed_name %></h3>
+          <br>
+          <h4> Favorite Genres </h4>
+          <% @user.user_genres.each do |user_genre| %>
+            <strong><%= user_genre.genre.category %></strong>
+          <% end %>
+        </div>   
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3> Your Recommended Critics </h3>
+      </div>
+      <div class="panel-body">
+        <div class="critic">
+          <% @critics.each do |critic|%>
+            <% if critic != current_user%>
+              <img src= <%=critic.avatar.url(:medium)%> width="130" height="130" border="5">
+              <br>
+              <br>
+              <h4><a href="/users/<%= critic.id %>"><%= critic.displayed_name %></a></h4>
+            <%end%>
+         <%end%> 
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-md-8">
+  <div class="row">
+    <div class="panel panel-default">
+      <h3> Movies Reviewed </h3>
+      <div class="panel-body">
+        <% @review.each do |review| %>
+          <div class="div1">
+            <img src= <%=review.movie.image.url(:medium)%> width="50" height="50" border="5">
+          </div>
+          <div class="reviews">
+            <%= review.movie.title%>
+            <br>
+            <div class="star-rating" data-score= <%=review.rating %>></div>
+            <%= review.comment %>
+            <br>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score:function() {
+        return $(this).attr('data-score');
+      }
+  })
+</script>

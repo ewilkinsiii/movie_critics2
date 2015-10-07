@@ -5,15 +5,25 @@ class MoviesController < ApplicationController
   def search
     if params[:search].present?
       @movies = Movie.search(params[:search])
+    elsif params[:category]
+      genre= Genre.find_by(:category => params[:category])
+      @movies = genre.movies
     else
       @movies = Movie.all 
     end 
   end
+  
   def index
     @movies = Movie.all
+    if params[:category]
+      genre= Genre.find_by(:category => params[:category])
+      @movies = genre.movies
+    end
   end
 
   def show
+    @trailer =Trailer.where(movie_id: params[:id])
+    @cast = Cast.where(movie_id: params[:id]) 
     @reviews =Review.where(movie_id: @movie.id).order("created_at DESC").take(5)
     @review =Review.where(movie_id: @movie.id).order("created_at DESC")
 
@@ -34,6 +44,7 @@ class MoviesController < ApplicationController
 
  
   def create
+    params[:movie][:genre_ids] ||= []
     @movie = current_user.movies.build(movie_params)
 
     respond_to do |format|
@@ -49,8 +60,9 @@ class MoviesController < ApplicationController
 
  
   def update
+    params[:movie][:genre_ids] ||= []
     respond_to do |format|
-      if @movie.update(movie_params)
+      if @movie.update(movie_params) 
         format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
         format.json { render :show, status: :ok, location: @movie }
       else
@@ -76,6 +88,6 @@ class MoviesController < ApplicationController
     end
 
     def movie_params
-      params.require(:movie).permit(:title, :description, :director_first_name, :director_last_name, :imdb_id, :year, :release_date, :mpaa_rating, :run_time, :image)
+      params.require(:movie).permit(:title, :description, :director_first_name, :director_last_name, :imdb_id, :year, :release_date, :mpaa_rating, :run_time, :image, genre_ids: [])
     end
 end

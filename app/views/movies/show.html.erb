@@ -1,3 +1,44 @@
+ <div class="panel panel-default">
+  <%@trailer.each do |trailer| %>
+    <div class="panel-footer">
+      <h2> Have you seen <%=trailer.title%>? If not watch the trailer, or read the reviews below.</h2>  
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="trailer">
+            <iframe width="1000" height="315" src="<%=trailer.embed.html_safe %>" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</div>
+
+<% if @cast.present? %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h1><%= "#{@movie.title + ' Cast'}"%></h1>|<%= link_to 'Add Cast Member', new_movie_cast_path(@movie)%>
+      <div class="row">
+        <div class="col-md-12">
+          <%@cast.each do |cast| %>
+            <div class="floating-box">
+              <img src= <%=cast.image.url(:medium)%> width="200" height="200" border="5">
+              <p><%= "#{cast.first_name + ' ' + cast.last_name + ' as '+ cast.characters_name}" %></p> 
+              <% if current_user.admin? %>
+               <a href="/movies/<%=@movie.id%>/casts/<%=cast.id%>/edit">edit</a>
+              <%end%>
+            </div>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>
+
+
+
+
 <div class="panel panel-default">
  <div class="panel-body">
    <div class="row">
@@ -40,6 +81,12 @@
               <td><strong>Run time:</strong></td>
               <td><%= @movie.run_time %></td>
             </tr>
+            <tr>
+              <td><strong>Genre:</strong></td>
+              <% @movie.movie_genres.each do |movie_genre| %>
+                <td><%= movie_genre.genre.category %></td>
+            </tr>
+              <%end%>
           </tbody>
         </table>
         <%= link_to "Write a Review", new_movie_review_path(@movie)%>
@@ -55,8 +102,10 @@
        <%else%>
           <%@reviews.each do |review| %>
             <div class="reviews">
-              <div class="img-circular">
-                <img src= <%=review.user.avatar.url(:thumb)%> alt="in circle images without css clip" style= "border-radius: 75px/75px;">
+              <div class="div1">
+                <div class="img-circular">
+                  <img src= <%=review.user.avatar.url(:thumb)%> alt="in circle images without css clip" style= "border-radius: 75px/75px;">
+                </div>
               </div>
               <div class="star-rating" data-score= <%=review.rating %>></div>
               <p><%= review.comment %></p>
@@ -74,9 +123,12 @@
 </div>
 
 
-
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<%= link_to 'Back', movies_path %> |
+<% if current_user.admin? %>
+  <%= link_to 'Edit', edit_movie_path(@movie) %> |
+  <%= link_to 'Add Cast Member', new_movie_cast_path(@movie)%> |
+  <%= link_to 'Add Trailer', new_movie_trailer_path(@movie)%>
+<%end%>
 
 <script>
     $('.star-rating').raty({

@@ -2,20 +2,30 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '4.2.1'
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 gem 'devise', '~> 3.5.2'
-gem 'sass-rails', '~> 5.0'
+gem 'chosen-rails'
+gem 'sass-rails', '~> 5.0.4'
 gem 'bootstrap-sass', '~> 3.3.5.1'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+gem 'will_paginate', '~> 3.0.7'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'compass', '~> 1.0.3'
 gem 'jquery-rails'
-gem 'turbolinks'
+gem 'turbolinks', '~> 2.5.3'
+gem 'jquery-turbolinks', '~> 2.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'paperclip', '~> 4.3.0'
 gem 'simple_form', '~> 3.1.0'
 gem 'searchkick', '~> 0.9.1'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'mailboxer', '~> 0.13.0'
+gem 'gravatar_image_tag', '~> 1.2.0'
+gem 'cocoon', '~> 1.2.6'
+
+
 
 
 group :development, :test do
