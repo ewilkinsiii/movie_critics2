@@ -202,6 +202,9 @@ GEM
       activemodel
       elasticsearch (>= 1)
       hashie
+    seed_dump (3.2.2)
+      activerecord (~> 4)
+      activesupport (~> 4)
     simple_form (3.1.1)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -258,6 +261,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.4)
   sdoc (~> 0.4.0)
   searchkick (~> 0.9.1)
+  seed_dump (~> 3.2.2)
   simple_form (~> 3.1.0)
   spring
   turbolinks (~> 2.5.3)
