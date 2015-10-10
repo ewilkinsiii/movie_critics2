@@ -127,7 +127,8 @@
 <% if current_user.admin? %>
   <%= link_to 'Edit', edit_movie_path(@movie) %> |
   <%= link_to 'Add Cast Member', new_movie_cast_path(@movie)%> |
-  <%= link_to 'Add Trailer', new_movie_trailer_path(@movie)%>
+  <%= link_to 'Add Trailer', new_movie_trailer_path(@movie)%> |
+  <a href="/movies/<%= @movie.id %>" data-method="delete" rel="nofollow" data-confirm="Are you sure?" class="btn btn-default" role="button">Delete</a>
 <%end%>
 
 <script>

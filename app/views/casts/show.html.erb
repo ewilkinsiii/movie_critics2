@@ -1,0 +1,6 @@
+<img src= <%=@cast.image.url(:medium)%> width="200" height="200" border="5">
+<%= @cast.first_name %>
+<%= @cast.last_name %>
+<%= @cast.characters.name %>
+
+<a href="/movies/<%= @movie.id %>/casts/<%=@cast.id%>" data-method="delete" rel="nofollow" data-confirm="Are you sure?" class="btn btn-default" role="button">Delete</a>
