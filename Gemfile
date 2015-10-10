@@ -27,6 +27,8 @@ gem 'cocoon', '~> 1.2.6'
 gem 'seed_dump', '~> 3.2.2'
 gem 'pg', '~> 0.18.3', group: :production
 gem 'rails_12factor', '~> 0.0.3', group: :production
+gem 'rails_serve_static_assets', '~> 0.0.4'
+gem 'rails_stdout_logging', '~> 0.0.4'
 
 
 
