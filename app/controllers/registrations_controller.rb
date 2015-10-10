@@ -9,7 +9,7 @@ private
   end
 
   def account_update_params
-    params.require(:user).permit(:first_name, :last_name, :displayed_name, :avatar, :email, :password, :password_confirmation, :current_password, genre_ids: [])
+    params.require(:user).permit(:first_name, :last_name, :displayed_name, :avatar, :email, :admin, :password, :password_confirmation, :current_password, genre_ids: [])
   end
 
   def set_user

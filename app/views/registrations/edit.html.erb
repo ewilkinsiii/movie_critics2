@@ -29,6 +29,11 @@
         <div class="form-group">
           <%= f.input :displayed_name, required: true, autofocus: true, input_html: {class: 'form-control'} %>
         </div>
+
+        <div class="field">
+           <%= label_tag :admin %>
+           <%=check_box_tag :admin, 1, @user.admin%>
+        </div>
         
         <div class="field">
           <%= hidden_field_tag "user[genre_ids][]", nil %>
