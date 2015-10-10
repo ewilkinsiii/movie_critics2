@@ -31,11 +31,15 @@
         </div>
 
         <div class="field">
-           <%= label_tag :admin %>
-           <%=check_box_tag :admin, 1, @user.admin%>
+          <h4> Admin </h4>
+          <%= label_tag 'No' %>
+          <%= f.radio_button :admin, "0" %>
+          <%= label_tag 'Yes' %>
+          <%= f.radio_button :admin, "1" %>
         </div>
         
         <div class="field">
+          <h4> Genre </h4>
           <%= hidden_field_tag "user[genre_ids][]", nil %>
           <% Genre.all.each do |genre| %>
             <%= check_box_tag "user[genre_ids][]", genre.id, @user.genre_ids.include?(genre.id), id: dom_id(genre) %>
