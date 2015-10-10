@@ -25,6 +25,9 @@ gem 'mailboxer', '~> 0.13.0'
 gem 'gravatar_image_tag', '~> 1.2.0'
 gem 'cocoon', '~> 1.2.6'
 gem 'seed_dump', '~> 3.2.2'
+gem 'pg', '~> 0.18.3', group: :production
+gem 'rails_12factor', '~> 0.0.3', group: :production
+
 
 
 
