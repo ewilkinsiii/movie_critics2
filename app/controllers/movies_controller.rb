@@ -3,19 +3,23 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def search
-    if params[:search].present?
-      @movies = Movie.search(params[:search])
-    elsif params[:category]
-      genre= Genre.find_by(:category => params[:category])
-      @movies = genre.movies
-    else
-      @movies = Movie.all 
+    if params[:search]
+      @movies= Movie.where('title LIKE ?', "%" + params[:search] + "%")
+    #if params[:search].present?
+      #@movies = Movie.search(params[:search])
+    #elsif params[:category]
+     # genre= Genre.find_by(:category => params[:category])
+      #@movies = genre.movies
+    #else
+      #@movies = Movie.all 
     end 
   end
   
   def index
     @movies = Movie.all
-    if params[:category]
+    if params[:search]
+      @movies= Movie.where('title LIKE ?', "%" + params[:search] + "%")
+    elsif params[:category]
       genre= Genre.find_by(:category => params[:category])
       @movies = genre.movies
     end

@@ -18,7 +18,10 @@
 <% if @cast.present? %>
   <div class="panel panel-default">
     <div class="panel-body">
-      <h1><%= "#{@movie.title + ' Cast'}"%></h1>|<%= link_to 'Add Cast Member', new_movie_cast_path(@movie)%>
+      <h1><%= "#{@movie.title + ' Cast'}"%></h1>
+      <% if current_user.admin? %>
+        |<%= link_to 'Add Cast Member', new_movie_cast_path(@movie)%>
+      <%end%>
       <div class="row">
         <div class="col-md-12">
           <%@cast.each do |cast| %>
@@ -89,7 +92,7 @@
               <%end%>
           </tbody>
         </table>
-        <%= link_to "Write a Review", new_movie_review_path(@movie)%>
+        <%= link_to "Write a Review", new_movie_review_path(@movie), class: "btn btn-default"%>
       </div>
      </div>
      <div class="col-md-7 col-md-offset-1">
@@ -123,12 +126,12 @@
 </div>
 
 
-<%= link_to 'Back', movies_path %> |
+<%= link_to 'Back', movies_path , class: "btn btn-default"%> |
 <% if current_user.admin? %>
-  <%= link_to 'Edit', edit_movie_path(@movie) %> |
-  <%= link_to 'Add Cast Member', new_movie_cast_path(@movie)%> |
-  <%= link_to 'Add Trailer', new_movie_trailer_path(@movie)%> |
-  <a href="/movies/<%= @movie.id %>" data-method="delete" rel="nofollow" data-confirm="Are you sure?" class="btn btn-default" role="button">Delete</a>
+  <%= link_to 'Edit', edit_movie_path(@movie),class: "btn btn-default" %> |
+  <%= link_to 'Add Cast Member', new_movie_cast_path(@movie), class: "btn btn-default"%> |
+  <%= link_to 'Add Trailer', new_movie_trailer_path(@movie), class: "btn btn-default"%> |
+  <%=link_to  "Delete", movie_path, method: :delete, data: {confirm: "Are you sure?"} , class: "btn btn-default"%>
 <%end%>
 
 <script>

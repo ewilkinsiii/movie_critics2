@@ -7,7 +7,7 @@
       <div class="panel-body">
         <%= render 'form' %>
 |
-        <%= link_to 'Back', movie_path(@movie) %>
+        <%= link_to 'Back', movie_path(@movie), class: "btn btn-default" %>
         <a href="/movies/<%= @movie.id %>" data-method="delete" rel="nofollow" data-confirm="Are you sure?" class="btn btn-default" role="button">Delete</a>
       </div>
     </div>

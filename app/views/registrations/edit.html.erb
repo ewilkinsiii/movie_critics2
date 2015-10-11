@@ -29,14 +29,15 @@
         <div class="form-group">
           <%= f.input :displayed_name, required: true, autofocus: true, input_html: {class: 'form-control'} %>
         </div>
-
-        <div class="field">
-          <h4> Admin </h4>
-          <%= label_tag 'No' %>
-          <%= f.radio_button :admin, "0" %>
-          <%= label_tag 'Yes' %>
-          <%= f.radio_button :admin, "1" %>
-        </div>
+        <% if current_user.admin? %>
+          <div class="field">
+            <h4> Admin </h4>
+            <%= label_tag 'No' %>
+            <%= f.radio_button :admin, "0" %>
+            <%= label_tag 'Yes' %>
+            <%= f.radio_button :admin, "1" %>
+          </div>
+        <%end%>
         
         <div class="field">
           <h4> Genre </h4>
