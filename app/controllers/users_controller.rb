@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def show
   	@review = Review.where(user_id: params[:id]).all
     review = Review.find(params[:id])
-    score = Review.find(:movie_id => params[:id], :user_id => current_user.id)
+    score = Review.find_by(:movie_id => params[:id], :user_id => current_user.id)
     p params[:id]
     @critics = User.joins(:reviews).where(:reviews => {:rating=> review.rating, :movie_id => params[:id]})
   end
