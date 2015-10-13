@@ -29,7 +29,6 @@
               <li><a href="/users/<%= current_user.id %>"> <%= current_user.displayed_name + "'s "%> Profile</a></li>
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
               <li><%= link_to 'Your Conversations', conversations_path %></li>
-              <li><a href="#">Separated link</a></li>
             </ul>
           </li>
           <li><a href="/users/sign_out" data-method="delete" rel="nofollow" data-confirm="Are you sure?"><span class="glyphicon glyphicon-log-out"></span> Sign Out </a></li>

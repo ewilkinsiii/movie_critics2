@@ -6,8 +6,8 @@
     <div class="panel-body">
       <div class="row">
         <div class="col-md-12">
-          <div class="trailer">
-            <iframe width="1000" height="315" src="<%=trailer.embed.html_safe %>" frameborder="0" allowfullscreen></iframe>
+          <div class="span8">
+            <div class="flex-video widescreen"><iframe src="<%=trailer.embed.html_safe %>"frameborder="0" allowfullscreen=""></iframe></div>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <h1><%= "#{@movie.title + ' Cast'}"%></h1>
-      <% if current_user.admin? %>
+      <% if current_user && current_user.admin? %>
         |<%= link_to 'Add Cast Member', new_movie_cast_path(@movie)%>
       <%end%>
       <div class="row">
@@ -28,7 +28,7 @@
             <div class="floating-box">
               <img src= <%=cast.image.url(:medium)%> width="200" height="200" border="5">
               <p><%= "#{cast.first_name + ' ' + cast.last_name + ' as '+ cast.characters_name}" %></p> 
-              <% if current_user.admin? %>
+              <% if current_user && current_user.admin? %>
                <a href="/movies/<%=@movie.id%>/casts/<%=cast.id%>/edit">edit</a>
               <%end%>
             </div>
@@ -127,7 +127,7 @@
 
 
 <%= link_to 'Back', movies_path , class: "btn btn-default"%> |
-<% if current_user.admin? %>
+<% if current_user && current_user.admin? %>
   <%= link_to 'Edit', edit_movie_path(@movie),class: "btn btn-default" %> |
   <%= link_to 'Add Cast Member', new_movie_cast_path(@movie), class: "btn btn-default"%> |
   <%= link_to 'Add Trailer', new_movie_trailer_path(@movie), class: "btn btn-default"%> |
