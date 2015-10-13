@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   
   def search
     if params[:search]
-      @movies= Movie.where('title LIKE ?', "%" + params[:search] + "%")
+      @movies= Movie.where('title ILIKE ?', "%" + params[:search] + "%")
     #if params[:search].present?
       #@movies = Movie.search(params[:search])
     #elsif params[:category]
@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     if params[:search]
-      @movies= Movie.where('title LIKE ?', "%" + params[:search] + "%")
+      @movies= Movie.where('title ILIKE ?', "%" + params[:search] + "%")
     elsif params[:category]
       genre= Genre.find_by(:category => params[:category])
       @movies = genre.movies
