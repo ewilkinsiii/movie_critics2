@@ -19,11 +19,12 @@
           <% @user.user_genres.each do |user_genre| %>
             <strong><%= user_genre.genre.category %></strong>
           <% end %>
+        <!--<a class= "btn btn-primary" href="#">Add Critic</a>-->
         </div>   
       </div>
     </div>
   </div>
-  <div class="col-xs-6 col-md-4">
+  <div id="sidebar">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3> Your Recommended Critics </h3>
@@ -44,7 +45,7 @@
   </div>
 </div>
 
-
+<% if @review.any? %>
 <div class="col-xs-12 col-md-8">
   <div class="row">
     <div class="panel panel-default">
@@ -66,6 +67,8 @@
     </div>
   </div>
 </div>
+<%end%>
+
 
 
 <script>
