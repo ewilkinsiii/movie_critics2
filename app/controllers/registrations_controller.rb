@@ -20,7 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
  
   def update
     @user = User.find params[:id]
-
+    params[:movie][:genre_ids] ||= []
     respond_to do |format|
       if @user.update_attributes!(account_update_params)
         if params[:user][:avatar].blank?

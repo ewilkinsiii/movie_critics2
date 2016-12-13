@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
  
   def update
-    @user= User.find(params[:id][:genre_ids])
+    @user= User.find(params[:id])
     if @user.update_attributes(account_update_params)
       if params[:user][:avatar].blank?
         flash[:notice] = "Successfully updated user."
@@ -82,6 +82,6 @@ class UsersController < ApplicationController
     end
 
     def set_user
-      @user = User.find(params[:id][:genre_ids])
+      @user = User.find(params[:id])
     end
 end
