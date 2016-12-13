@@ -15,30 +15,31 @@
   <%end%>
 </div>
 
-<% if @cast.present? %>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h1><%= "#{@movie.title + ' Cast'}"%></h1>
-      <% if current_user && current_user.admin? %>
-        |<%= link_to 'Add Cast Member', new_movie_cast_path(@movie)%>
-      <%end%>
-      <div class="row">
-        <div class="col-md-12">
-          <%@cast.each do |cast| %>
-            <div class="floating-box">
-              <img src= <%=cast.image.url(:medium)%> width="200" height="200" border="5">
-              <p><%= "#{cast.first_name + ' ' + cast.last_name + ' as '+ cast.characters_name}" %></p> 
-              <% if current_user && current_user.admin? %>
-               <a href="/movies/<%=@movie.id%>/casts/<%=cast.id%>/edit">edit</a>
-              <%end%>
-            </div>
-          <%end%>
+<% if current_user && current_user.admin? %>
+  <% if @cast.present? %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h1><%= "#{@movie.title + ' Cast'}"%></h1>
+        <% if current_user && current_user.admin? %>
+          |<%= link_to 'Add Cast Member', new_movie_cast_path(@movie)%>
+        <%end%>
+        <div class="row">
+          <div class="col-md-12">
+            <%@cast.each do |cast| %>
+              <div class="floating-box">
+                <img src= <%=cast.image.url(:medium)%> width="200" height="200" border="5">
+                <p><%= "#{cast.first_name + ' ' + cast.last_name + ' as '+ cast.characters_name}" %></p> 
+                <% if current_user && current_user.admin? %>
+                 <a href="/movies/<%=@movie.id%>/casts/<%=cast.id%>/edit">edit</a>
+                <%end%>
+              </div>
+            <%end%>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <%end%>
 <%end%>
-
 
 
 
