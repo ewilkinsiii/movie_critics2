@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
       redirect_to "/"
     end
   end
+
+  def default_url_options(options={})
+    { :secure => true }
+  end 
   
   protected
 
