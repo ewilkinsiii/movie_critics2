@@ -13,6 +13,7 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require jquery.Jcrop
 //= require jquery-ui
 //= require chosen-jquery
 //= require turbolinks
