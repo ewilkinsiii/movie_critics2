@@ -30,7 +30,7 @@ gem 'rails_12factor', '~> 0.0.3', group: :production
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rails_serve_static_assets', '~> 0.0.4'
 gem 'rails_stdout_logging', '~> 0.0.4'
-gem 'aws-sdk'
+gem 'aws-sdk-v1'
 
 
 
