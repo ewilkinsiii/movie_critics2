@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
 	include Elasticsearch::Model
-	searchkick
+	#searchkick
 	belongs_to :user
 	has_many :reviews
 	has_many :trailers
