@@ -30,10 +30,12 @@ Rails.application.routes.draw do
       delete :empty_trash
     end
   end
-  resources :messages, only: [:new, :create]
+  resources :messages, only: [:new, :create] do
+  end
 
-  resources :users, only: [:index, :show]
-
+  resources :users, only: [:index, :show, :edit, :update, :crop] do
+    patch :crop, on: :member
+  end
 
  root 'movies#index'
 end

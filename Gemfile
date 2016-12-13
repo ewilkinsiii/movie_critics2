@@ -27,8 +27,11 @@ gem 'cocoon', '~> 1.2.6'
 gem 'seed_dump', '~> 3.2.2'
 gem 'pg', '~> 0.18.3', group: :production
 gem 'rails_12factor', '~> 0.0.3', group: :production
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rails_serve_static_assets', '~> 0.0.4'
 gem 'rails_stdout_logging', '~> 0.0.4'
+gem 'best_in_place', github: 'bernat/best_in_place'
+gem 'aws-sdk', '~> 2'
 
 
 
@@ -39,4 +42,3 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-
