@@ -13,7 +13,7 @@
           <img src= <%=@user.avatar.url(:medium)%> width="150" height="150">
         </div>
         <div class="user">
-          <h3> <%= best_in_place @user, :displayed_name, :as => :input  %></h3>
+          <h3> <%= @user.displayed_name  %></h3>
           <br>
           <h4> Favorite Genres </h4>
           <% @user.user_genres.each do |user_genre| %>
