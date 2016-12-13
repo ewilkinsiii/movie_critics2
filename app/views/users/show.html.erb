@@ -13,7 +13,7 @@
           <img src= <%=@user.avatar.url(:medium)%> width="150" height="150">
         </div>
         <div class="user">
-          <h3> <%= @user.displayed_name %></h3>
+          <h3> <%= best_in_place @user, :displayed_name, :as => :input  %></h3>
           <br>
           <h4> Favorite Genres </h4>
           <% @user.user_genres.each do |user_genre| %>
@@ -37,6 +37,9 @@
               <br>
               <br>
               <h4><a href="/users/<%= critic.id %>"><%= critic.displayed_name %></a></h4>
+              <% if current_user && current_user.admin? %>
+               <h4><a href="/users/<%= critic.id %>/edit">edit</a></h4>
+              <%end%>
             <%end%>
          <%end%> 
         </div> 
