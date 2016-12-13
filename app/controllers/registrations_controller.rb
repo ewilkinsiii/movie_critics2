@@ -48,6 +48,6 @@ private
   end
 
   def set_user
-      @user = User.find(params[:id][:genre_ids])
+      @user = User.find(params[:id])
   end
 end
