@@ -65,14 +65,19 @@ class MoviesController < ApplicationController
  
   def update
     params[:movie][:genre_ids] ||= []
-    respond_to do |format|
-      if @movie.update(movie_params) 
-        format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
-        format.json { render :show, status: :ok, location: @movie }
-      else
-        format.html { render :edit }
-        format.json { render json: @movie.errors, status: :unprocessable_entity }
-      end
+    #respond_to do |format|
+      #if @movie.update(movie_params) 
+        #format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @movie }
+      #else
+        #format.html { render :edit }
+        #format.json { render json: @movie.errors, status: :unprocessable_entity }
+      #end
+    #end
+    if @movie.update(movie_params) 
+      redirect_to @movie, notice: "Movie was Successfully updated"
+    else
+      render 'edit'
     end
   end
 
