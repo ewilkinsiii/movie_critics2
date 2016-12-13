@@ -19,6 +19,10 @@
           <% @user.user_genres.each do |user_genre| %>
             <strong><%= user_genre.genre.category %></strong>
           <% end %>
+          <% Genre.all.each do |genre| %>
+             <%=@user.genre_ids.include?(genre.id)%>
+            <%= label_tag dom_id(genre), genre.category %><br>
+          <% end %>
         <!--<a class= "btn btn-primary" href="#">Add Critic</a>-->
         </div>   
       </div>
