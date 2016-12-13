@@ -31,6 +31,8 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rails_serve_static_assets', '~> 0.0.4'
 gem 'rails_stdout_logging', '~> 0.0.4'
 gem 'aws-sdk-v1'
+gem 'elasticsearch-model', group: :production
+gem 'elasticsearch-rails', group: :production
 
 
 

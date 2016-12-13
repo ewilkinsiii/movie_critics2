@@ -102,6 +102,11 @@ GEM
       elasticsearch-transport (= 5.0.0)
     elasticsearch-api (5.0.0)
       multi_json
+    elasticsearch-model (0.1.9)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.9)
     elasticsearch-transport (5.0.0)
       faraday
       multi_json
@@ -257,6 +262,8 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   compass (~> 1.0.3)
   devise (~> 3.5.2)
+  elasticsearch-model
+  elasticsearch-rails
   figaro (~> 1.1, >= 1.1.1)
   gravatar_image_tag (~> 1.2.0)
   jbuilder (~> 2.0)
