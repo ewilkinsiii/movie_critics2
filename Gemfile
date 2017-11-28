@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '4.2.1'
-gem 'mysql2', '~> 0.3.18'
+gem 'mysql2', '~> 0.4.10'
 gem 'devise', '~> 3.5.2'
 gem 'chosen-rails'
 gem 'sass-rails', '~> 5.0.4'

@@ -154,7 +154,7 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    mysql2 (0.3.21)
+    mysql2 (0.4.10)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
@@ -274,7 +274,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks (~> 2.1.0)
   mailboxer (~> 0.13.0)
-  mysql2 (~> 0.3.18)
+  mysql2 (~> 0.4.10)
   paperclip (~> 4.3.0)
   pg (~> 0.18.3)
   rails (= 4.2.1)
