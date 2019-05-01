@@ -33,7 +33,7 @@ gem 'rails_stdout_logging', '~> 0.0.4'
 gem 'aws-sdk-v1'
 gem 'elasticsearch-model', group: :production
 gem 'elasticsearch-rails', group: :production
-gem 'airbrake', '~> 5.4'
+gem 'airbrake', '~> 9.2'
 
 
 
