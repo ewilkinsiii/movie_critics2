@@ -109,7 +109,7 @@ GEM
       activesupport (> 3)
       elasticsearch (> 0.4)
       hashie
-    elasticsearch-rails (0.1.9)
+    elasticsearch-rails (7.0.0)
     elasticsearch-transport (5.0.0)
       faraday
       multi_json
