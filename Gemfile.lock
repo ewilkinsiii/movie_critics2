@@ -164,7 +164,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    pg (0.18.4)
+    pg (1.2.1)
     rack (1.6.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -276,7 +276,7 @@ DEPENDENCIES
   mailboxer (~> 0.13.0)
   mysql2 (~> 0.3.18)
   paperclip (~> 4.3.0)
-  pg (~> 0.18.3)
+  pg (~> 1.2.1)
   rails (= 4.2.1)
   rails_12factor (~> 0.0.3)
   rails_serve_static_assets (~> 0.0.4)
