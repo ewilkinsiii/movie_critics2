@@ -16,7 +16,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 2.5.3'
 gem 'jquery-turbolinks', '~> 2.1.0'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 2.0.2', group: :doc
 gem 'paperclip', '~> 4.3.0'
 gem 'simple_form', '~> 3.1.0'
 gem 'searchkick', '~> 0.9.1'
