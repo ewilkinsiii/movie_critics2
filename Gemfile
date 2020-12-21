@@ -20,7 +20,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'paperclip', '~> 4.3.0'
 gem 'simple_form', '~> 3.1.0'
 gem 'searchkick', '~> 0.9.1'
-gem 'acts_as_votable', '~> 0.10.0'
+gem 'acts_as_votable', '~> 0.13.1'
 gem 'mailboxer', '~> 0.13.0'
 gem 'gravatar_image_tag', '~> 1.2.0'
 gem 'cocoon', '~> 1.2.6'
