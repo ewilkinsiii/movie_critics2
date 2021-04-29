@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "09:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: nokogiri
+    versions:
+    - 1.11.1
+  - dependency-name: ffi
+    versions:
+    - 1.14.2
+  - dependency-name: sdoc
+    versions:
+    - 2.0.3
